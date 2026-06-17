@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saint Mark Missionary Baptist Church</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --burgundy: #7a0c16;
+      --dark-burgundy: #4b0710;
+      --yellow: #f5b51b;
+      --white: #ffffff;
+      --dark: #2d2d2d;
+      --cream: #fff7f2;
+      --light-burgundy: #f3dddd;
+      --light-yellow: #fff4cf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--burgundy);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(122, 12, 22, 0.42);
+      z-index: 2;
+    }
+
+    .hero-header {
+      position: relative;
+      z-index: 10;
+      padding: 40px 6%;
+      display: grid;
+      grid-template-columns: 150px 1fr 260px;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 135px;
+      height: 135px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 19px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .give-button {
+      justify-self: end;
+      display: flex;
+      align-items: stretch;
+      height: 72px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+    }
+
+    .give-button span {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 0 32px;
+      font-size: 19px;
+      font-weight: bold;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+
+    .plus-box {
+      width: 70px;
+      background: var(--white);
+      color: var(--yellow);
+      font-size: 58px;
+      font-weight: bold;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 780px;
+      margin-left: 12%;
+      margin-top: 9%;
+    }
+
+    .hero-content h1 {
+      font-size: 78px;
+      line-height: 1.02;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .hero-content p {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      line-height: 1.45;
+      max-width: 720px;
+      margin-bottom: 36px;
+      color: var(--white);
+    }
+
+    .learn-more {
+      display: inline-block;
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 17px 48px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .vision-bar {
+      background: var(--dark-burgundy);
+      color: var(--white);
+      padding: 48px 7%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .vision-bar h2 {
+      font-size: 44px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .vision-bar .plus {
+      color: var(--yellow);
+      font-size: 48px;
+      margin-left: 10px;
+    }
+
+    .vision-bar p {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.7;
+      border-left: 2px solid rgba(255,255,255,.5);
+      padding-left: 45px;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--burgundy);
+      font-size: 46px;
+      margin-bottom: 35px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .socials a {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      background: var(--yellow);
+      color: var(--burgundy);
+      transform: translateY(-4px);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      background: var(--light-burgundy);
+    }
+
+    .photo-grid img:first-child {
+      height: 578px;
+      grid-row: span 2;
+    }
+
+    .connected-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .connected-card {
+      min-height: 350px;
+      padding: 60px 75px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .connected-card:nth-child(1),
+    .connected-card:nth-child(2) {
+      background: var(--light-burgundy);
+    }
+
+    .connected-card:nth-child(3),
+    .connected-card:nth-child(4) {
+      background: var(--light-yellow);
+    }
+
+    .icon-circle {
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .icon-circle i {
+      color: var(--burgundy);
+      font-size: 38px;
+    }
+
+    .connected-card h3 {
+      color: var(--burgundy);
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .connected-card p {
+      font-size: 21px;
+      line-height: 1.55;
+      max-width: 600px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .split img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      background: var(--light-burgundy);
+    }
+
+    .split h2 {
+      color: var(--burgundy);
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .split p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--burgundy);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 34px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .announcements {
+      background: var(--burgundy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .announcements h2 {
+      color: var(--yellow);
+      font-size: 44px;
+      margin-bottom: 35px;
+    }
+
+    .announcement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .announcement {
+      background: var(--white);
+      color: var(--dark);
+      padding: 30px;
+      border-top: 8px solid var(--yellow);
+      min-height: 230px;
+    }
+
+    .announcement h3 {
+      color: var(--burgundy);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .scripture {
+      background: var(--yellow);
+      color: var(--burgundy);
+      text-align: center;
+      font-size: 28px;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #222;
+      color: var(--white);
+      padding: 65px 7%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: var(--yellow);
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    footer a {
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .footer-socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-header {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+      }
+
+      .logo img {
+        margin: auto;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .give-button {
+        justify-self: center;
+      }
+
+      .hero-content {
+        margin: 70px 7%;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 44px;
+      }
+
+      .hero-content p {
+        font-size: 19px;
+      }
+
+      .vision-bar,
+      .photo-grid,
+      .connected-grid,
+      .split,
+      .announcement-grid,
+      footer {
+        grid-template-columns: 1fr;
+      }
+
+      .vision-bar p {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .photo-grid img,
+      .photo-grid img:first-child {
+        height: 300px;
+      }
+
+      .connected-card {
+        padding: 45px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/IMG_7291.mov" type="video/quicktime">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <header class="hero-header">
+      <div class="logo">
+        <img src="images/logo.png" alt="Saint Mark Missionary Baptist Church Logo">
+      </div>
+
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="#service">Service Times</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <a class="give-button"
+         href="https://app.autobooks.co/pay/st-mark-missionary-baptist-church-1"
+         target="_blank">
+        <span>Give Securely</span>
+        <div class="plus-box">+</div>
+      </a>
+    </header>
+
+    <div class="hero-content">
+      <h1>Saint Mark Missionary Baptist Church</h1>
+
+      <p>
+        Looking Back to Move Forward — reaching the lost,
+        making disciples, and transforming lives through faith,
+        worship, and community.
+      </p>
+
+      <a href="about.html" class="learn-more">Learn More</a>
+    </div>
+
+  </section>
+
+  <section class="vision-bar">
+    <h2>Our Vision <span class="plus">+</span></h2>
+
+    <p>
+      Reaching the Lost; Making Disciples and Transforming Lives.
+      We are in this together as we continue serving God, loving people,
+      and building community through faith.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Stay Connected</h2>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/stmarkmissionarybaptistchurch/" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61590304181122" target="_blank" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.youtube.com/@StMarkMissionaryBaptistChurch1" target="_blank" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@stmarkmissioanry" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+    </div>
+
+    <div class="photo-grid">
+      <img src="images/IMG_5623.jpeg" alt="Saint Mark Church Photo">
+      <img src="images/IMG_5632.jpeg" alt="Saint Mark Church Photo">
+      <img src="images/IMG_5636.jpeg" alt="Saint Mark Church Photo">
+      <img src="images/IMG_6819.jpeg" alt="Saint Mark Church Photo">
+      <img src="images/IMG_6831.jpeg" alt="Saint Mark Church Photo">
+    </div>
+  </section>
+
+  <section id="service">
+    <h2 class="section-title">Get Connected</h2>
+
+    <div class="connected-grid">
+      <div class="connected-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+
+        <h3>Service Times</h3>
+
+        <p>
+          We meet on the 1st and 3rd Sundays.<br><br>
+          Sunday School - 10:00 AM<br>
+          Worship Service - 11:00 AM<br><br>
+          3rd Friday Bible Study - 6:00 PM
+        </p>
+      </div>
+
+      <div class="connected-card" id="events">
+        <div class="icon-circle">
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+
+        <h3>Events</h3>
+
+        <p>
+          August - Fall Revival<br>
+          September - Tailgating for Jesus Fall Festival<br>
+          November - Breakfast of Champions<br>
+          December - Angel Tree for Community Children
+        </p>
+      </div>
+
+      <div class="connected-card">
+        <div class="icon-circle">
+          <i class="fa-solid fa-hands-praying"></i>
+        </div>
+
+        <h3>Ministries</h3>
+
+        <p>
+          There is room in this story for your contribution.
+          Join us as we serve, grow, worship, and build together.
+        </p>
+      </div>
+
+      <div class="connected-card" id="giving">
+        <div class="icon-circle">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+
+        <h3>Giving</h3>
+
+        <p>
+          Support the mission and ministry of Saint Mark Missionary Baptist Church
+          through your generosity and sacrifice.
+        </p>
+
+        <a class="btn"
+           href="https://app.autobooks.co/pay/st-mark-missionary-baptist-church-1"
+           target="_blank">
+          Give Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="split" id="about-preview">
+    <img src="images/IMG_7585.JPG" alt="Rev. James Jordan">
+
+    <div>
+      <h2>Welcome!</h2>
+
+      <p>
+        Welcome to Saint Mark Missionary Baptist Church. We greet you with joy,
+        love, and gratitude in the name of our Lord and Savior Jesus Christ.
+      </p>
+
+      <p>
+        Whether you are visiting for the first time or searching for a church home,
+        we invite you to worship with us and become part of the Saint Mark family.
+      </p>
+
+      <a href="about.html" class="btn">About Our Church</a>
+    </div>
+  </section>
+
+  <section class="announcements">
+    <h2>Upcoming Events</h2>
+
+    <div class="announcement-grid">
+      <div class="announcement">
+        <h3>August - Fall Revival</h3>
+        <p>Revivalist: Rev. Willie Green<br>Forest Chapel Baptist Church</p>
+      </div>
+
+      <div class="announcement">
+        <h3>September</h3>
+        <p>Tailgating for Jesus<br>Fall Festival</p>
+      </div>
+
+      <div class="announcement">
+        <h3>November</h3>
+        <p>Breakfast of Champions<br>A Community Outreach Initiative</p>
+      </div>
+
+      <div class="announcement">
+        <h3>December</h3>
+        <p>Angel Tree for<br>Community Children</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scripture">
+    <p>
+      “This is the day that the Lord has made; we will rejoice and be glad in it.”
+      <br>— Psalm 118:24
+    </p>
+  </section>
+
+  <footer>
+    <div>
+      <h3>Explore Saint Mark</h3>
+      <a href="index.html">Home</a>
+      <a href="#service">Service Times</a>
+      <a href="about.html">About</a>
+      <a href="#events">Events</a>
+      <a href="giving.html">Give</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h3>Stay Connected</h3>
+      <p>
+        Follow Saint Mark Missionary Baptist Church online and stay updated on
+        services, community events, announcements, and ministry opportunities.
+      </p>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/stmarkmissionarybaptistchurch/" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61590304181122" target="_blank" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@StMarkMissionaryBaptistChurch1" target="_blank" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@stmarkmissioanry" target="_blank" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Visit Us</h3>
+      <p>Saint Mark Missionary Baptist Church</p>
+      <p>529 W. Union St.</p>
+      <p>Vienna, GA 31092</p>
+      <p>Phone: (678) 458-3190</p>
+      <p>Email: stmarkmissionarychurch@gmail.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>

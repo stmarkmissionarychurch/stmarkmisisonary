@@ -1,0 +1,419 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Saint Mark Missionary Baptist Church</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --burgundy: #7a0c16;
+            --gold: #f0b323;
+            --cream: #fdf7f3;
+            --text: #333333;
+            --dark: #1f1f1f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            color: var(--text);
+            background: white;
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            padding: 25px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--burgundy);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        .give-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .give-button-text {
+            background: var(--burgundy);
+            color: white;
+            padding: 20px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .give-button-plus {
+            background: white;
+            color: var(--gold);
+            width: 70px;
+            height: 66px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .history-section {
+            background: var(--cream);
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .history-section h1 {
+            color: var(--burgundy);
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .history-section p {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            font-size: 1.2rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 60px 7%;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .pastor-section,
+        .first-lady-section {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 7%;
+        }
+
+        .first-lady-section {
+            background: var(--cream);
+        }
+
+        .pastor-image-container,
+        .first-lady-image-container {
+            height: 540px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .pastor-photo,
+        .first-lady-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .first-lady-photo {
+            object-position: center top;
+            transform: scale(1.3);
+        }
+
+        .pastor-photo {
+            object-position: center top;
+        }
+
+        .pastor-text h2,
+        .first-lady-text h2 {
+            color: var(--burgundy);
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .pastor-text p,
+        .first-lady-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 7%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        footer p,
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: var(--burgundy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 992px) {
+
+            header {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .gallery,
+            .pastor-section,
+            .first-lady-section,
+            footer {
+                grid-template-columns: 1fr;
+            }
+
+            .history-section h1,
+            .pastor-text h2,
+            .first-lady-text h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <img src="images/logo.png" alt="Saint Mark Missionary Baptist Church Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Service Times</a>
+        <a href="about.html" class="active">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <a href="https://app.autobooks.co/pay/st-mark-missionary-baptist-church-1"
+       target="_blank"
+       class="give-button">
+
+        <div class="give-button-text">Give Securely</div>
+        <div class="give-button-plus">+</div>
+
+    </a>
+
+</header>
+
+<section class="history-section">
+
+    <h1>A Rich History</h1>
+
+    <p>
+        Saint Mark Missionary Baptist Church has served the Vienna, Georgia
+        community through faith, worship, fellowship, and outreach for generations.
+    </p>
+
+    <p>
+        Our mission is to honor God, strengthen families, and impact our
+        community while living out our vision:
+        <strong>"Reaching the Lost, Making Disciples, and Transforming Lives."</strong>
+    </p>
+
+</section>
+
+<section class="gallery">
+
+    <img src="images/IMG_5607.jpeg" alt="Saint Mark Church">
+
+    <img src="images/IMG_5616.jpeg" alt="Saint Mark Congregation">
+
+</section>
+
+<section class="pastor-section">
+
+    <div class="pastor-image-container">
+        <img src="images/IMG_7585.JPG"
+             alt="Pastor James Jordan"
+             class="pastor-photo">
+    </div>
+
+    <div class="pastor-text">
+
+        <h2>Pastor James Jordan</h2>
+
+        <p>
+            Pastor James Jordan leads Saint Mark Missionary Baptist Church
+            with a heart for service, discipleship, and community outreach.
+        </p>
+
+        <p>
+            A native of Vienna, Georgia, Pastor Jordan attended Vienna High
+            and Industrial School, Fort Valley State College, and proudly served
+            in the United States Army, achieving the rank of Sergeant.
+        </p>
+
+        <p>
+            He received his License in Christian Ministry in 2006 and his
+            Ordination Certificate in 2010.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="first-lady-section">
+
+    <div class="first-lady-image-container">
+
+        <img src="images/IMG_5643.jpeg"
+             alt="First Lady Ava Felicia Jordan"
+             class="first-lady-photo">
+
+    </div>
+
+    <div class="first-lady-text">
+
+        <h2>First Lady Ava Felicia Jordan</h2>
+
+        <p>
+            First Lady Ava Felicia Jordan is committed to ministry, outreach,
+            biblical teaching, and encouraging others through faith and service.
+        </p>
+
+        <p>
+            She earned her undergraduate degree from Talladega College and later
+            completed a Master's degree in Organizational Psychology from
+            Capella University.
+        </p>
+
+        <p>
+            Together, Pastor and First Lady Jordan continue to serve Saint Mark
+            with love, compassion, and dedication.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div>
+
+        <h3>Explore</h3>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="giving.html">Giving</a>
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+    <div>
+
+        <h3>Stay Connected</h3>
+
+        <div class="social-icons">
+
+            <a href="https://www.instagram.com/stmarkmissionarybaptistchurch/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61590304181122" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@StMarkMissionaryBaptistChurch1" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@stmarkmissioanry" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <h3>Visit Us</h3>
+
+        <p>Saint Mark Missionary Baptist Church</p>
+        <p>529 W. Union St.</p>
+        <p>Vienna, GA 31092</p>
+        <p>(678) 458-3190</p>
+        <p>stmarkmissionarychurch@gmail.com</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+```

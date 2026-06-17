@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Saint Mark Missionary Baptist Church</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --burgundy: #7a0c16;
+      --dark-burgundy: #4b0710;
+      --yellow: #f5b51b;
+      --white: #ffffff;
+      --dark: #2d2d2d;
+      --cream: #fff7f2;
+      --light-yellow: #fff4cf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 35px 7%;
+      display: grid;
+      grid-template-columns: 160px 1fr 260px;
+      align-items: center;
+      background: white;
+    }
+
+    .logo img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--burgundy);
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .give-box {
+      display: flex;
+      justify-self: end;
+      height: 72px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+
+    .give-box a {
+      background: var(--burgundy);
+      color: white;
+      text-decoration: none;
+      padding: 0 32px;
+      font-size: 19px;
+      font-weight: bold;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+
+    .give-box span {
+      background: white;
+      color: var(--yellow);
+      width: 70px;
+      font-size: 58px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .contact-intro {
+      background: var(--cream);
+      padding: 80px 7% 60px;
+      text-align: center;
+    }
+
+    .contact-intro h1 {
+      color: var(--burgundy);
+      font-size: 58px;
+      margin-bottom: 18px;
+    }
+
+    .contact-intro p {
+      font-size: 21px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact-cards {
+      padding: 70px 7%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-top: 8px solid var(--yellow);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 40px 30px;
+      text-align: center;
+      min-height: 260px;
+    }
+
+    .contact-card i {
+      color: var(--burgundy);
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .contact-card h2 {
+      color: var(--burgundy);
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      font-size: 19px;
+      color: var(--dark);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .service-section {
+      background: var(--burgundy);
+      color: white;
+      padding: 75px 7%;
+      text-align: center;
+    }
+
+    .service-section h2 {
+      color: var(--yellow);
+      font-size: 46px;
+      margin-bottom: 35px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-box {
+      background: white;
+      color: var(--dark);
+      padding: 35px 25px;
+      min-height: 210px;
+    }
+
+    .service-box i {
+      color: var(--burgundy);
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .service-box h3 {
+      color: var(--burgundy);
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .connect-section {
+      background: var(--light-yellow);
+      padding: 70px 7%;
+      text-align: center;
+    }
+
+    .connect-section h2 {
+      color: var(--burgundy);
+      font-size: 44px;
+      margin-bottom: 18px;
+    }
+
+    .connect-section p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .socials a {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      text-decoration: none;
+    }
+
+    .map-section {
+      padding: 75px 7%;
+      background: white;
+    }
+
+    .map-section h2 {
+      color: var(--burgundy);
+      font-size: 44px;
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 65px 7%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: var(--yellow);
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .footer-socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .logo img {
+        margin: auto;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .give-box {
+        justify-self: center;
+      }
+
+      .contact-intro h1 {
+        font-size: 42px;
+      }
+
+      .contact-cards,
+      .service-grid,
+      footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Saint Mark Missionary Baptist Church Logo">
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#service">Service Times</a>
+      <a href="about.html">About</a>
+      <a href="giving.html">Giving</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+
+    <div class="give-box">
+      <a href="index.html#giving">Give Securely</a>
+      <span>+</span>
+    </div>
+  </header>
+
+  <section class="contact-intro">
+    <h1>Contact Saint Mark</h1>
+    <p>
+      We would love to connect with you. Whether you are looking for service times,
+      church information, or ways to stay connected, Saint Mark welcomes you.
+    </p>
+  </section>
+
+  <section class="contact-cards">
+    <div class="contact-card">
+      <i class="fa-solid fa-location-dot"></i>
+      <h2>Visit Us</h2>
+      <p>Saint Mark Missionary Baptist Church</p>
+      <p>529 W. Union St.</p>
+      <p>Vienna, GA 31092</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fa-solid fa-phone"></i>
+      <h2>Call Us</h2>
+      <p><a href="tel:6784583190">(678) 458-3190</a></p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fa-solid fa-envelope"></i>
+      <h2>Email Us</h2>
+      <p><a href="mailto:stmarkmissionarychurch@gmail.com">stmarkmissionarychurch@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section class="service-section">
+    <h2>Service Times</h2>
+
+    <div class="service-grid">
+      <div class="service-box">
+        <i class="fa-solid fa-church"></i>
+        <h3>Sunday School</h3>
+        <p>1st & 3rd Sundays</p>
+        <p>10:00 AM</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-hands-praying"></i>
+        <h3>Worship Service</h3>
+        <p>1st & 3rd Sundays</p>
+        <p>11:00 AM</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-book-bible"></i>
+        <h3>Bible Study</h3>
+        <p>3rd Friday</p>
+        <p>6:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect-section">
+    <h2>Stay Connected</h2>
+    <p>Follow Saint Mark Missionary Baptist Church online.</p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/stmarkmissionarybaptistchurch/" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61590304181122" target="_blank" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.youtube.com/@StMarkMissionaryBaptistChurch1" target="_blank" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <a href="https://www.tiktok.com/@stmarkmissioanry" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <h2>Find Us</h2>
+
+    <iframe
+      class="map-frame"
+      src="https://www.google.com/maps?q=529%20W.%20Union%20St.%20Vienna%2C%20GA%2031092&output=embed"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <footer>
+    <div>
+      <h3>Explore Saint Mark</h3>
+      <a href="index.html">Home</a>
+      <a href="index.html#service">Service Times</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#giving">Give</a>
+    </div>
+
+    <div>
+      <h3>Stay Connected</h3>
+      <p>
+        Follow Saint Mark Missionary Baptist Church online and stay updated on
+        services, community events, announcements, and ministry opportunities.
+      </p>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/stmarkmissionarybaptistchurch/" target="_blank" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61590304181122" target="_blank" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@StMarkMissionaryBaptistChurch1" target="_blank" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@stmarkmissioanry" target="_blank" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Visit Us</h3>
+      <p>Saint Mark Missionary Baptist Church</p>
+      <p>529 W. Union St.</p>
+      <p>Vienna, GA 31092</p>
+      <p>Phone: (678) 458-3190</p>
+      <p>Email: stmarkmissionarychurch@gmail.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
